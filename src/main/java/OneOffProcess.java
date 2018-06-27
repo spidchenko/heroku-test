@@ -21,7 +21,7 @@ public class OneOffProcess
         BufferedReader br = null;
         
         System.out.println(Calendar.getInstance(TimeZone.getTimeZone("GMT+3")).getTime().toString());
-        String message = time+"This is message from heroku server!";
+        String message = "This is message from heroku server!";
         URL url = new URL(SendString+message);
         conn = url.openConnection();
         br = new BufferedReader(new InputStreamReader(new BufferedInputStream(conn.getInputStream())));
