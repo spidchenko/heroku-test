@@ -19,13 +19,12 @@ public class WorkerProcess
         String message;
         URL url;
         
-        Calendar cal = Calendar.getInstance(TimeZone.getTimeZone("GMT+3"));
-        String time = cal.get(Calendar.HOUR_OF_DAY) +":"+ cal.get(Calendar.MINUTE) +":"+ cal.get(Calendar.SECOND);
-        System.out.println(time);
-        
+        Calendar cal;
+        String time;        
         
         for(int i = 1 ; i <= 3; i++) {
-
+            cal = Calendar.getInstance(TimeZone.getTimeZone("GMT+3"));
+            time = cal.get(Calendar.HOUR_OF_DAY) +":"+ cal.get(Calendar.MINUTE) +":"+ cal.get(Calendar.SECOND);
             System.out.println("Worker process woke up "+time);
             message = "This is message from heroku server service! "+time;
             url = new URL(SendString+message);
