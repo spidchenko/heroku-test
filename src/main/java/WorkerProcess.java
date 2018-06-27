@@ -33,6 +33,14 @@ public class WorkerProcess
                 url = new URL(SendString+message);
                 conn = url.openConnection();
                 br = new BufferedReader(new InputStreamReader(new BufferedInputStream(conn.getInputStream())));
+                
+                StringBuilder sb = new StringBuilder();
+                String inputLine = "";
+                while ((inputLine = br.readLine()) != null) {
+                    sb.append(inputLine);
+                }
+                String response = sb.toString();
+                System.out.println(response);
 
                 try {
                     
