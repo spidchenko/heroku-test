@@ -32,7 +32,7 @@ public class WorkerProcess
             br = new BufferedReader(new InputStreamReader(new BufferedInputStream(conn.getInputStream())));
             
             try { 
-                Thread.sleep(1000*60);  //Sleep for 60 Seconds 3 times
+                Thread.sleep(1000*60*10);  //Sleep for 20 Minutes x 3 times
             } catch(InterruptedException e) {
                 System.out.println("Error!");
             }
