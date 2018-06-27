@@ -20,25 +20,14 @@ public class OneOffProcess
         URLConnection conn = null;
         BufferedReader br = null;
         
-        for (int i = 1; i <= 5; i++){
-            
-            String message = time;
-            URL url = new URL(SendString+message);    
-            conn = url.openConnection();
-            br = new BufferedReader(new InputStreamReader(new BufferedInputStream(conn.getInputStream())));
-            Thread.sleep(1000*2);
-         
-        }
-        
-//        StringBuilder sb = new StringBuilder();
-//        String inputLine = "";
-//        while ((inputLine = br.readLine()) != null) {
-//            sb.append(inputLine);
-//        }
-//        String response = sb.toString();
-//        
-//        System.out.println(response);
-        
-        
+        System.out.println(Calendar.getInstance(TimeZone.getTimeZone("GMT+3")).getTime().toString());
+        String message = time+"This is message frOm heroku";
+        URL url = new URL(SendString+message);    
+        conn = url.openConnection();
+        br = new BufferedReader(new InputStreamReader(new BufferedInputStream(conn.getInputStream())));
+        Thread.sleep(1000*2);
+
+        System.out.println(Calendar.getInstance(TimeZone.getTimeZone("GMT+3")).getTime().toString());
+
     }
 }
