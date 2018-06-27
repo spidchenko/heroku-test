@@ -6,6 +6,8 @@ import java.io.InputStreamReader;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLConnection;
+import java.util.Calendar;
+import java.util.TimeZone;
 
 public class WorkerProcess
 {
@@ -16,17 +18,22 @@ public class WorkerProcess
         BufferedReader br = null;
         String message;
         URL url;
-
+        
+        Calendar cal = Calendar.getInstance(TimeZone.getTimeZone("GMT+3"));
+        String time = cal.get(Calendar.HOUR_OF_DAY) +":"+ cal.get(Calendar.MINUTE) +":"+ cal.get(Calendar.SECOND);
+        System.out.println(time);
+        
+        
         for(int i = 1 ; i <= 3; i++) {
 
-            System.out.println("Worker process woke up");
-            message = "This is message from heroku server service! "+i;
+            System.out.println("Worker process woke up "+time);
+            message = "This is message from heroku server service! "+time;
             url = new URL(SendString+message);
             conn = url.openConnection();
             br = new BufferedReader(new InputStreamReader(new BufferedInputStream(conn.getInputStream())));
             
             try { 
-                Thread.sleep(1000*30);  //Sleep for 10 Seconds 3 times
+                Thread.sleep(1000*60);  //Sleep for 60 Seconds 3 times
             } catch(InterruptedException e) {
                 System.out.println("Error!");
             }
