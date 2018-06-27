@@ -27,7 +27,9 @@ public class WorkerProcess
             
             try { 
                 Thread.sleep(1000*30);  //Sleep for 10 Seconds 3 times
-            } catch(InterruptedException e) {}
+            } catch(InterruptedException e) {
+                System.out.println("Error!");
+            }
  
         }
     }    
