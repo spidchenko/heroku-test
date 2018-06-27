@@ -16,7 +16,7 @@ public class WorkerProcess
         BufferedReader br = null;
         String message;
         URL url;
-        
+
         for(int i = 1 ; i <= 3; i++) {
 
             System.out.println("Worker process woke up");
@@ -26,7 +26,7 @@ public class WorkerProcess
             br = new BufferedReader(new InputStreamReader(new BufferedInputStream(conn.getInputStream())));
             
             try { 
-                Thread.sleep(1000*10);  //Sleep for 10 Seconds 3 times
+                Thread.sleep(1000*30);  //Sleep for 10 Seconds 3 times
             } catch(InterruptedException e) {}
  
         }
