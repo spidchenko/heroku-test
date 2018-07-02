@@ -24,12 +24,12 @@ public class WorkerProcess
         Calendar cal;
         String time;        
         
-        for(int i = 1 ; i <= 3; i++) {
+        for(int i = 1 ; i <= 48; i++) {
             try {
                 cal = Calendar.getInstance(TimeZone.getTimeZone("GMT+3"));
                 time = cal.get(Calendar.HOUR_OF_DAY) +":"+ cal.get(Calendar.MINUTE) +":"+ cal.get(Calendar.SECOND);
                 System.out.println("Worker process woke up "+time);
-                message = "This is message from heroku server service! "+time;
+                message = "This is message from heroku server service! "+time+" ("+i+")";
                 url = new URL(SendString+message);
                 conn = url.openConnection();
                 br = new BufferedReader(new InputStreamReader(new BufferedInputStream(conn.getInputStream())));
@@ -44,7 +44,7 @@ public class WorkerProcess
 
                 try {
                     
-                    Thread.sleep(1000*60*15);  //Sleep for 15 Minutes x 3 times
+                    Thread.sleep(1000*60*30);  //Sleep for 30 Minutes x 48 times
                     
                 } catch (InterruptedException ex) {
                     Logger.getLogger(WorkerProcess.class.getName()).log(Level.SEVERE, null, ex);
